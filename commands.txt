@@ -1,0 +1,15 @@
+# Check docker version and make sure everything is ok
+docker version
+
+# Details about configuration and setup of our engine
+docker info
+
+# Get docker commands
+docker
+
+# docker command format
+docker <command> (options) #Old way
+docker run
+
+docker <command> <sub-command> (options) #New way
+docker container run
