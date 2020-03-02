@@ -1,0 +1,17 @@
+Container vs VM
+
+Container
+-  You don't need a GUEST OS
+-  The docker daemon manages everything required
+   to run and interact with docker containers
+-  Libs are built within the Docker image
+-  Containers are just processes
+-  Limited to resources they can access
+-  Exit when process stops
+
+VM
+-  Self contained computer packed into a single file
+-  That file is executed by the Hypervisor
+-  Each VM has its own GUEST OS
+-  As they are more isolated, you do need to install
+   the same lib on each VM
