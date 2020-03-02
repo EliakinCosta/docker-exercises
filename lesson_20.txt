@@ -1,0 +1,10 @@
+What happens in 'docker container run'
+
+1. Looks for that image locally in image cache, doesn't find anything
+2. Then looks in remote image repository (default is Docker Hub)
+3. Downloads the latest version or the version specified
+4. Creates new container based on that image and prepares to start
+5. Gives it a virtual IP on a private network inside docker engine
+6. If bind was made, it opens up port port on host and forward to port
+   in container
+7. Starts container by using the CMD in the image Dockerfile
