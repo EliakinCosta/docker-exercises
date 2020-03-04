@@ -1,0 +1,27 @@
+#Start new container interactively
+
+docker container run -it --name proxy nginx bash
+
+Tip: If run with -it, it will give you a terminal inside
+     the running container.
+
+# Running a ubuntu container and accessing its default terminal
+
+docker container run -it --name ubuntu ubuntu
+
+Tip: You can also install packages on container using ubuntu's package
+     manager.
+
+# Running shell on an active container
+
+docker container exec -it container_name bash
+
+Tip: It runs an additional process on the container.
+
+# Pulling docker image
+
+docker pull alpine
+
+# Running shell inside container container based on alpine image
+
+docker container run -it alpine sh
