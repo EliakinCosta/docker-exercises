@@ -1,0 +1,15 @@
+#List processes running on container
+
+docker container top container_name
+
+# Check container config
+
+docker container inspect container_name
+
+# Check live stats from active containers
+
+docker container stats
+
+#Check live stats specific container
+
+docker container stats container_name
