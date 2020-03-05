@@ -1,0 +1,29 @@
+# Docker Networks: DNS
+
+- You can't on IP addresses inside containers as things are
+  so dynamic.
+- Static IP's are an anti pattern when it comes to containers.
+- When you create a container attached to another network other
+  than the default one, it gets a special new feature, which is
+  automatic DNS resolution for all the containers on this virtual
+  network.
+- Docker defaults the hostname to the container's name, but you
+  can also set aliases.
+- Always use custom network as you don't to create manual
+  links all the time.
+
+## Commands
+
+### Create two new container on the same network
+
+$ docker network create my_app_net
+$ docker container run -d --name my_nginx --network my_app_net nginx:alpine
+$ docker container run -d --name new_nginx --network my_app_net nginx:alpine
+
+### See if containers are actually on the same network
+
+$ docker network inspect my_app_net
+
+### Testing name resolution between those two containers
+
+$ docker container exec -it my_nginx ping new_nginx
