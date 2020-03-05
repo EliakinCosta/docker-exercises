@@ -1,0 +1,29 @@
+# Docker Networks
+
+- Docker has a concept of batteries included, but removable.
+- For local dev/testing networks usually just work.
+- When you start a container, you're connecting to a private
+  virtual network called bridge.
+- Each virtual network routes through NAT firewall on host IP.
+- All containers on the same virtual network can talk to each other
+  without opening ports on your physical network (-p).
+- Best practice is to create a new virtual network for each app
+   - network "my_web_app" for mysql and php/apache containers
+   - network "my_api" for mongo and nodejs containers.
+- You can make new virtual Networks
+- You can attach a container to more than one virtual
+  virtual network or even none
+- Skip virtual networks and host IP (--net=host)
+- We can use different Docker network drivers
+
+# Commands
+
+$ docker container run -p 80:80 --name webhost -d nginx
+
+## Show port container is running and bind
+
+$ docker container port webhost
+
+## Get IP of the container
+
+$ docker container inspect --format '{{ .NetworkSettings.IPAddress }}' webhost
