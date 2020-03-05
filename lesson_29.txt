@@ -1,0 +1,27 @@
+# Docker Networks: CLI Management
+
+## Show networks
+
+$ docker network ls
+
+## Inspect a network
+
+$ docker network inspect <network-name>
+
+## Create a network
+
+$ docker network create <network-name>
+
+Tip: use --driver to create networks using custom drivers.
+
+## Remove a network
+
+$ docker network rm <network-name>
+
+## Attach network to container
+
+$ docker network connect
+
+## Detach a network from container
+
+$ docker network disconnect
