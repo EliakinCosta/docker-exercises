@@ -1,0 +1,7 @@
+What's an image (and what isn't)
+
+- App binaries and dependencies
+- Metadata about the image data and how to run the image
+
+- Not a complete OS. No kernel, just kernel modules (e.g. drivers)
+- Can be big (ubuntu) or very small (golang static binary)
