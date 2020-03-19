@@ -1,0 +1,30 @@
+# Assignment: DNS Round Robin Test
+
+- Ever since Docker Engine 1.11, we can have multiple containers
+  on a created network respond to the same DNS address.
+- Create a new virtual network (default bridge driver)
+- Create two container from elasticsearch:2 image
+- Reseach and use --network-alias search when creating them to
+  give them an additional DNS name to respond to.
+- Run alpine nslookup search with --net to see the two containers list
+  for the same DNS name.
+- Run centos curl -s search:9200 with --net multiple times until you
+  see both "name" fields show.
+
+
+# Create network using default bridge driver
+
+$ docker network create dns_test
+
+# Create two containers from elasticsearch:2 image
+
+$ docker container run --name elastic1 --network dns_test --network-alias search -d elasticsearch:2
+$ docker container run --name elastic2 --network dns_test --network-alias search -d elasticsearch:2
+
+# Run nslookup
+
+$ docker container run -it --rm --net=dns_test --name test_lookup alpine nslookup search
+
+# Run curl
+
+$ docker container run -it --rm --net=dns_test --name test_lookup centos curl -s search:9200
